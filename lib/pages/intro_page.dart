@@ -7,45 +7,48 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        padding: const EdgeInsets.only(top: 570, left: 25, right: 25),
-        decoration: const BoxDecoration(
-          image:  DecorationImage(
+    return Scaffold(
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
             image: AssetImage("lib/images/intro_page_bg.png"),
             fit: BoxFit.cover,
-            )
+          ),
         ),
+        padding: EdgeInsets.all(25.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Synclin Sport",
-              style: GoogleFonts.dmSerifDisplay(
-                fontSize: 44, 
-                color: Colors.white,
-                letterSpacing: 1,
-                ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "L'alleato ideale di ogni sportivo",
-                  style: GoogleFonts.dmSerifDisplay(
-                    fontSize: 18, 
-                    color: Colors.white.withOpacity(0.8),
-                    //letterSpacing: 1,
-                ),
-                ),
-                const SizedBox(height: 30),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(padding: EdgeInsets.only(top: 540)),
+                
+              Text(
+                "Synclin Sport",
+                style: GoogleFonts.dmSerifDisplay(fontSize: 45, color: Colors.white),
+              ),
 
-                MyButton(text: "Get Started"),
-              ],
-            ),
-            
-          ],
-        ),
+              const SizedBox(height: 10),
+
+              Text(
+                "L'alleato di ogni professionista!",
+                style:TextStyle(fontSize: 16, color: Colors.grey[200]),
+              ),
+
+              const SizedBox(height: 25),
+
+              MyButton(
+                text: "Get Started",
+                onTap: () {
+                  Navigator.pushNamed(context, '/loginpage');
+                },
+                ),
+              
+
+
+            ],
+
+        )
       ),
     );
   }
